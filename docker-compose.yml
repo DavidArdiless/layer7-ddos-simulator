@@ -1,0 +1,25 @@
+services:
+  # Victim Web Server
+  victim:
+    image: nginx:alpine
+    container_name: victim_server
+    ports:
+      - "8080:80"
+
+  # Traffic Generator (Attacker)
+  attacker:
+    image: alpine
+    container_name: attacker_node
+    command: sleep infinity
+
+  # Real-Time Monitoring Dashboard
+  monitoring:
+    image: nicolargo/glances:latest-full
+    container_name: glances_dashboard
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "61208:61208"
+    environment:
+      - GLANCES_OPT=-w
