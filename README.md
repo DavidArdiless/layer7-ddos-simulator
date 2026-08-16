@@ -85,7 +85,7 @@ Real-time monitoring dashboard accessing `/var/run/docker.sock` to report contai
 Clone the repository and spin up the containers:
 
 ```bash
-git clone https://github.com/yourusername/layer7-ddos-simulation-lab.git
+git clone https://github.com/DavidArdiless/layer7-ddos-simulator
 cd layer7-ddos-simulation-lab
 docker compose up -d
 ```
